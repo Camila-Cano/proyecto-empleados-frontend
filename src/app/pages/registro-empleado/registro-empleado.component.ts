@@ -6,6 +6,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import {FormGroup, FormControl} from '@angular/forms';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { EmpleadoService } from '../../services/empleado.service';
+import { MensajesBackendService } from '../../services/mensajes-backend.service';
 
 @Component({
   selector: 'app-registro-empleado',
@@ -16,7 +17,9 @@ import { EmpleadoService } from '../../services/empleado.service';
 })
 export class RegistroEmpleadoComponent {
 
-  constructor(private empleadoService: EmpleadoService) {}
+  constructor(private empleadoService: EmpleadoService,
+    private mensajesBackendService: MensajesBackendService
+  ) {}
 
   formulario = new FormGroup({
     codigo: new FormControl(''),
@@ -30,8 +33,16 @@ export class RegistroEmpleadoComponent {
 
   onSubmit() {
     this.empleadoService.registrarEmpleado(this.formulario.value).subscribe(
-      data => console.log(data)
-    )
+      {
+        next: resp => {
+          this.mensajesBackendService.subjectExito.next(resp);
+          this.formulario.reset();
+        },
+        error: err => {
+          this.mensajesBackendService.subjectError.next(err);
+        }
+      }
+    );
   }
 
 }
