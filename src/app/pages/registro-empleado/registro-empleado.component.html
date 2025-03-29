@@ -1,5 +1,11 @@
 <form nz-form [formGroup]="formulario" (ngSubmit)="onSubmit()">
     <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="documentoIdentidad">Documento de identidad (ID)</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+            <input nz-input id="documentoIdentidad" formControlName="documentoIdentidad" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
         <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="codigo">Codigo</nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24">
             <input nz-input formControlName="codigo" id="codigo" />
@@ -15,12 +21,6 @@
         <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="apellido">Apellido</nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24">
             <input nz-input id="apellido" formControlName="apellido" />
-        </nz-form-control>
-    </nz-form-item>
-    <nz-form-item>
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="documentoIdentidad">Documento de identidad (ID)</nz-form-label>
-        <nz-form-control [nzSm]="14" [nzXs]="24">
-            <input nz-input id="documentoIdentidad" formControlName="documentoIdentidad" />
         </nz-form-control>
     </nz-form-item>
     <nz-form-item>

@@ -5,6 +5,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import {FormGroup, FormControl} from '@angular/forms';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { EmpleadoService } from '../../services/empleado.service';
 
 @Component({
   selector: 'app-registro-empleado',
@@ -14,6 +15,8 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class RegistroEmpleadoComponent {
+
+  constructor(private empleadoService: EmpleadoService) {}
 
   formulario = new FormGroup({
     codigo: new FormControl(''),
@@ -25,17 +28,10 @@ export class RegistroEmpleadoComponent {
     fechaNacimiento: new FormControl('')
   });
 
-  handleChange(info: any): void {
-
-    const reader = new FileReader();
-    reader.readAsDataURL(info.files[0]);
-    const result = reader.result;
-    console.log(result);
-  }
-
   onSubmit() {
-    console.log(this.formulario.value);
-    // this.formulario.reset()
+    this.empleadoService.registrarEmpleado(this.formulario.value).subscribe(
+      data => console.log(data)
+    )
   }
 
 }
