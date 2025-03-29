@@ -10,3 +10,4 @@
 - cd proyecto-empleados-frontend
 - npm install
 - ng serve
+- Abrir en el navegador web http://localhost:4200/
