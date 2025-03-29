@@ -1,1 +1,63 @@
-<p>operaciones-empleado works!</p>
+<form nz-form [formGroup]="formulario">
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="documentoIdentidad">Documento de identidad (ID)</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+            <input nz-input id="documentoIdentidad" formControlName="documentoIdentidad" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item nz-row class="register-area">
+        <nz-form-control [nzSpan]="14" [nzOffset]="6">
+            <button nz-button (click)="consultarEmpleado()" nzType="primary">Buscar empleado</button>
+        </nz-form-control>
+    </nz-form-item>
+    <div *ngIf="mostrarFormulario">
+        <nz-form-item>
+            <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="codigo">Codigo</nz-form-label>
+            <nz-form-control [nzSm]="14" [nzXs]="24">
+                <input nz-input formControlName="codigo" id="codigo" />
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="nombre">Nombre</nz-form-label>
+            <nz-form-control [nzSm]="14" [nzXs]="24">
+                <input nz-input id="nombre" formControlName="nombre" />
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="apellido">Apellido</nz-form-label>
+            <nz-form-control [nzSm]="14" [nzXs]="24">
+                <input nz-input id="apellido" formControlName="apellido" />
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="direccion">Direccion</nz-form-label>
+            <nz-form-control [nzSm]="14" [nzXs]="24">
+                <input nz-input id="direccion" formControlName="direccion" />
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="telefono">Telefono</nz-form-label>
+            <nz-form-control [nzSm]="14" [nzXs]="24">
+                <input nz-input id="telefono" formControlName="telefono" />
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-label [nzSm]="8" [nzXs]="24">Fecha de nacimiento</nz-form-label>
+            <nz-form-control [nzSm]="16" [nzXs]="24">
+                <nz-date-picker formControlName="fechaNacimiento"></nz-date-picker>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item nz-row class="register-area" *ngIf="operacion === 'editar'">
+            <nz-form-control [nzSpan]="14" [nzOffset]="6">
+                <button nz-button (click)="editarEmpleado()" nzType="primary">Editar empleado</button>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item nz-row class="register-area" *ngIf="operacion === 'eliminar'">
+            <nz-form-control [nzSpan]="14" [nzOffset]="6">
+                <button nz-button (click)="eliminarEmpleado()" nzType="primary" nzDanger>Eliminar empleado</button>
+            </nz-form-control>
+        </nz-form-item>
+    </div>
+
+
+</form>

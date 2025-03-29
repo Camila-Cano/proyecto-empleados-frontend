@@ -20,13 +20,13 @@
         <a routerLink="/registro-empleado">Registro Empleados</a>
       </li>
       <li nz-menu-item nzMatchRouter>
-        <a routerLink="/consultar-empleado">Consultar Empleado</a>
+        <a [routerLink]="['/consultar-empleado','consultar']">Consultar Empleado</a>
       </li>
       <li nz-menu-item nzMatchRouter>
-        <a routerLink="/editar-empleado">Editar Empleado</a>
+        <a [routerLink]="['/editar-empleado','editar']">Editar Empleado</a>
       </li>
       <li nz-menu-item nzMatchRouter>
-        <a routerLink="/eliminar-empleado">Eliminar Empleado</a>
+        <a [routerLink]="['/eliminar-empleado','eliminar']">Eliminar Empleado</a>
       </li>
     </ul>
   </nz-sider>

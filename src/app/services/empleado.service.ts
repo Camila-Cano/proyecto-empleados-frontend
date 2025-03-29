@@ -15,11 +15,11 @@ export class EmpleadoService {
     return this.http.post(this.urlBase.concat('crear'), formulario);
   }
 
-  consultarEmpleado(documentoIdentidad: string): Observable<any> {
+  consultarEmpleado(documentoIdentidad: any): Observable<any> {
     return this.http.get(this.urlBase.concat(documentoIdentidad));
   }
 
-  eliminarEmpleado(documentoIdentidad: string): Observable<any> {
+  eliminarEmpleado(documentoIdentidad: any): Observable<any> {
     return this.http.delete(this.urlBase.concat(documentoIdentidad));
   }
 
