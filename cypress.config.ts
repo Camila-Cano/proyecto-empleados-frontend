@@ -8,6 +8,15 @@ export default defineConfig({
   
   
   component: {
+    reporter: 'mochawesome',
+    reporterOptions: {
+      reportDir: 'cypress/reports',
+      html: true,
+      json: true,
+      embeddedScreenshots: true,
+      video: true,
+      title: 'Mi Informe de Pruebas'
+    },
     devServer: {
       framework: 'angular',
       bundler: 'webpack',
