@@ -11,3 +11,12 @@
 - npm install
 - ng serve
 - Abrir en el navegador web http://localhost:4200/
+
+# Ejecución pruebas e2e
+- Ubicarse en la carpeta del proyecto frontend que se creó del paso del (Build)
+- cd proyecto-empleados-frontend
+- ng e2e
+- A la pregunta Would you like to use a different port? seleccionar la opción Y
+- Seleccionar el navegador web chrome
+- Seleccionar el caso de prueba automatizado spec.cy.ts
+- Finalmente las evidencias de los screen shots quedarán disponibles en el folder cypress/screenshots
